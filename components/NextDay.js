@@ -9,6 +9,7 @@ var year = new Date().getFullYear();
 
 
 const NextDay = (props) => {
+    
     return (
         <View style={styles.container} >
             <View style={styles.boxLeft}>
