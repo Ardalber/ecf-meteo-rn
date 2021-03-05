@@ -1,7 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image } from 'react-native';
 
-
 var date = new Date().getDate();
 var month = new Date().getMonth() + 1;
 var year = new Date().getFullYear();
@@ -9,15 +8,15 @@ var year = new Date().getFullYear();
 
 
 
-
 const Today = (props) => {
-  
+
   return (
 
 
     <View style={styles.boxToday}>
 
       <View>
+
         <Text style={styles.date}> {date} {month} {year} </Text>
       </View>
       <View style={styles.biBox} >

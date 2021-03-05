@@ -11,24 +11,29 @@ export default function App() {
   const [tempMin, setTempMin] = useState([]);
   const [desc, setDesc] = useState([]);
   const [icon, setIcon] = useState([]);
+  const [report, setReport] = useState([]);
+  console.log(report)
   useEffect(() => {
     axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=50.4291723&lon=2.8319805&units=metric&lang=fr&exclude=minutely,hourly,alerts&appid=348423add36511b1c1c01fcbd408e1bb`)
-      .then(res => {
-
-        setTempMin(res.data.daily[0].temp.min);
-        setTempMax(res.data.daily[0].temp.max);
-        setDesc(res.data.current.weather[0].main);
-        setIcon(res.data.daily[0].weather[0].icon);
+    .then(res => {
+      
+      setTempMin(res.data.daily[0].temp.min);
+      setTempMax(res.data.daily[0].temp.max);
+      setDesc(res.data.current.weather[0].main);
+      setIcon(res.data.daily[0].weather[0].icon);
+      setReport(res.data);
+        console.log(res.data.daily[0].weather[0].icon)
       })
   }, []);
-
   return (
     <View style={styles.container}>
       <Today tmax={tempMax} tmin={tempMin} desc={desc} icon={icon}></Today>
       <NextDay
+        tmax={tempMax} 
+        tmin={tempMin}
         icon={icon}
         desc={desc}
-        
+
 
       ></NextDay>
     </View>
@@ -36,8 +41,9 @@ export default function App() {
 }
 const styles = StyleSheet.create({
   container: {
+    flexDirection:'column',
     backgroundColor: 'green',
-    width: 450,
+    width: '100%',
     flex: 1,
     alignItems: 'center',
     justifyContent: 'spaceBetween',

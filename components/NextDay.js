@@ -9,10 +9,10 @@ var year = new Date().getFullYear();
 
 
 const NextDay = (props) => {
-    
     return (
         <View style={styles.container} >
             <View style={styles.boxLeft}>
+                
                 <Image style={styles.nextDayIcon} source={{ uri: `http://openweathermap.org/img/wn/${props.icon}@2x.png` }} />
             </View>
             <View style={styles.boxCenter}>
@@ -20,6 +20,8 @@ const NextDay = (props) => {
                 <Text style={styles.desc}>{props.desc}</Text>
             </View>
             <View style={styles.boxRight}>
+                <Text style={styles.txt}>{props.tmax}°</Text>
+                <Text style={styles.tmin}>{props.tmin}°</Text>
 
             </View>
 
@@ -54,17 +56,30 @@ const styles = StyleSheet.create({
 
     },
     boxRight: {
+        paddingLeft:5,
         width: 30,
+        display: 'flex',
+        flexDirection: 'column',
+        alignContent:'left',
+        justifyContent:'spaceEvenly'
+
     },
     date: {
-        marginTop: 2,
-        fontSize: 13,
+        fontSize: 10,
+        marginBottom: 7,
+
 
     },
     desc: {
-        fontSize: 5,
+        fontSize: 6,
         marginLeft: 3,
+    },
+    txt:{
+        fontSize:10,
+        marginBottom: 7,
+    },
+    tmin:{
+        fontSize:6,
     }
-
 
 })
