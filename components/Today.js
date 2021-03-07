@@ -1,14 +1,13 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image } from 'react-native';
 
-var date = new Date().getDate();
 var month = new Date().getMonth() + 1;
 var year = new Date().getFullYear();
 
 
 
-
 const Today = (props) => {
+
 
   return (
 
@@ -16,8 +15,7 @@ const Today = (props) => {
     <View style={styles.boxToday}>
 
       <View>
-
-        <Text style={styles.date}> {date} {month} {year} </Text>
+        <Text style={styles.date}> {props.day} {props.numOfDay} {props.monthToday}  {props.year} </Text>
       </View>
       <View style={styles.biBox} >
         <View style={styles.boxLeft} >
@@ -45,18 +43,18 @@ export default Today
 
 const styles = StyleSheet.create({
   boxToday: {
-    margin: 5,
     width: 120,
     height: 55,
     backgroundColor: 'blue',
   },
   date: {
-    paddingLeft: 3,
-    paddingTop: 5,
+    padding:2,
+    display:'flex',
+    flexDirection:'row',
     backgroundColor: 'blue',
-    width: 50,
+    width: 80,
     height: 15,
-    fontSize: 8,
+    fontSize: 6,
     color: 'white',
 
   },
